@@ -10,11 +10,18 @@ class SaveIcon extends StatelessWidget {
   Widget build(BuildContext context) {
     return IconButton(
       onPressed: onTap,
-      icon: SvgPicture.asset(
-        isSaved ? AssetsData.saveAcive : AssetsData.save,
-        height: 19,
-        width: 15,
-      ),
+      icon: isSaved
+          ? SvgPicture.asset(
+              AssetsData.saveAcive,
+              height: 19,
+              width: 15,
+            )
+          : SvgPicture.asset(
+              AssetsData.save,
+              height: 19,
+              width: 15,
+              color: const Color(0xff626262),
+            ),
     );
   }
 }

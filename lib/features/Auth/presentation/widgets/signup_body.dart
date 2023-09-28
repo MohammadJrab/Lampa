@@ -25,6 +25,16 @@ class _SignInBodyState extends State<SignInBody> {
   final passwordController = TextEditingController();
 
   bool isChecked = true;
+  void onTapRadioBtn(bool? isChk) {
+    setState(() {
+      if (isChecked) {
+        isChecked = false;
+      } else {
+        isChecked = true;
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     // Size size = MediaQuery.sizeOf(context);
@@ -35,6 +45,7 @@ class _SignInBodyState extends State<SignInBody> {
       offset: const Offset(0, -8),
       sigma: 4,
       child: Container(
+        height: double.infinity,
         decoration: const BoxDecoration(
           image: DecorationImage(
             image: AssetImage(
@@ -136,9 +147,7 @@ class _SignInBodyState extends State<SignInBody> {
                             ),
                             value: isChecked,
                             activeColor: const Color(0xff5E90C9),
-                            onChanged: (newBool) => setState(() {
-                              isChecked = newBool!;
-                            }),
+                            onChanged: onTapRadioBtn,
                           ),
                         )
                       ],

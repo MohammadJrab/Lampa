@@ -13,7 +13,7 @@ class Subheader extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       width: 320,
-      height: 100,
+      height: 120,
       child: Padding(
         padding: const EdgeInsets.only(right: 28),
         child: Align(

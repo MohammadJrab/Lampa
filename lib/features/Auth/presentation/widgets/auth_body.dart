@@ -63,7 +63,7 @@ class _AuthBodyState extends State<AuthBody>
                           controller: _tabController,
                           unselectedLabelStyle: Styles.textStyle16,
                           labelStyle: Styles.textStyle24,
-                          labelPadding: const EdgeInsets.only(bottom: 5),
+                          labelPadding: const EdgeInsets.only(bottom: 20),
                           indicator: const BoxDecoration(
                             image: DecorationImage(
                               image: AssetImage(AssetsData.tabBarIndicator),

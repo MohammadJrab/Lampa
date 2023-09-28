@@ -61,8 +61,10 @@ class ForYouItem extends StatelessWidget {
                 fit: BoxFit.fill,
               ),
             ),
-            Align(
-              alignment: Alignment.center,
+            Positioned(
+              top: size.height * 0.31,
+              left: 0,
+              right: 0,
               child: Container(
                 height: 337,
                 decoration: BoxDecoration(
@@ -71,6 +73,8 @@ class ForYouItem extends StatelessWidget {
                     end: Alignment.bottomCenter,
                     colors: [
                       const Color(0x00000000),
+                      const Color(0x00000000).withOpacity(0.8),
+                      const Color(0x00000000),
                       const Color(0x00000000).withOpacity(0.63),
                     ],
                   ),
@@ -78,7 +82,7 @@ class ForYouItem extends StatelessWidget {
               ),
             ),
             Positioned(
-              top: size.height * 0.33,
+              top: size.height * 0.325,
               left: 0,
               right: 0,
               child: Container(
@@ -89,16 +93,17 @@ class ForYouItem extends StatelessWidget {
                 child: Row(
                   children: [
                     Padding(
-                      padding: const EdgeInsets.only(top: 10),
+                      padding: const EdgeInsets.only(top: 25),
                       child: CustomContainer(
                         title: part,
                         height: 31,
                         width: 81,
                       ),
                     ),
-                    const SizedBox(width: 15),
+                    const SizedBox(width: 40),
                     SizedBox(
-                      height: 88,
+                      // padding: const EdgeInsets.only(bottom: 15),
+                      height: 110,
                       width: 232,
                       child: Text(
                         title,
@@ -128,7 +133,7 @@ class ForYouItem extends StatelessWidget {
                       ),
                       fit: BoxFit.cover),
                 ),
-                padding: const EdgeInsets.symmetric(horizontal: 30),
+                padding: const EdgeInsets.only(left: 30, right: 30, top: 10),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [

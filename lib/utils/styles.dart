@@ -62,6 +62,7 @@ abstract class Styles {
   static TextStyle textStyle24 = GoogleFonts.cairo(
     fontSize: 24,
     fontWeight: FontWeight.w700,
+    color: const Color(0xffffffff),
   );
 
   static TextStyle textStyle30 = GoogleFonts.cairo(

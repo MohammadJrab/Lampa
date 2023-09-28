@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lamba/utils/assets.dart';
 import 'package:simple_shadow/simple_shadow.dart';
 
 import '../../../../utils/styles.dart';
@@ -28,7 +29,10 @@ class CustomContainer extends StatelessWidget {
         width: width,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(50),
-          color: Colors.white,
+          image: const DecorationImage(
+              image: AssetImage(AssetsData.backgrounLight),
+              fit: BoxFit.cover,
+              alignment: Alignment.center),
         ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,

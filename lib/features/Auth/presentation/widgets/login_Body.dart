@@ -34,7 +34,7 @@ class _LoginBodyState extends State<LoginBody> {
       offset: const Offset(0, -15),
       sigma: 5,
       child: Container(
-        // height: widget.screenHeight * 0.70,
+        height: double.infinity,
         decoration: const BoxDecoration(
             image: DecorationImage(
                 image: AssetImage(
