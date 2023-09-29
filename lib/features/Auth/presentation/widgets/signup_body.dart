@@ -115,7 +115,10 @@ class _SignInBodyState extends State<SignInBody> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        GoRouter.of(context)
+                            .push(AppRouter.kForgetPasswordView);
+                      },
                       child: Text(
                         "نسيت كلمة المرور؟",
                         style: Styles.textStyle12.copyWith(color: Colors.black),

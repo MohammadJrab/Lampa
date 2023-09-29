@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
+import 'package:lamba/features/Auth/presentation/widgets/login_Body.dart';
+import 'package:lamba/features/Auth/presentation/widgets/signup_body.dart';
 import 'package:lamba/utils/app_router.dart';
 import 'package:lamba/utils/assets.dart';
 import 'package:lamba/utils/styles.dart';
@@ -88,6 +90,20 @@ class _AuthBodyState extends State<AuthBody>
                       ],
                     ),
                   ),
+                  Expanded(
+                    key: const Key("TabBarView"),
+                    child: SizedBox(
+                      width: double.infinity,
+                      child: TabBarView(
+                        controller: _tabController,
+                        physics: const BouncingScrollPhysics(),
+                        children: const [
+                          SignInBody(),
+                          LoginBody(),
+                        ],
+                      ),
+                    ),
+                  )
                 ],
               ),
             ),

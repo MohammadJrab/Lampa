@@ -32,29 +32,27 @@ class _HomeViewState extends State<HomeView>
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: SafeArea(
-        child: Scaffold(
-          body: TabBarView(
-            controller: _tabController,
-            physics: const NeverScrollableScrollPhysics(),
-            children: const [
-              HomeBody(),
-              ArticlesView(),
-              SearchView(),
-              AboutView(),
-            ],
-          ),
-          bottomNavigationBar: CustomBottonNavigationBar(
-            onTabChanged: (index) {
-              setState(() {
-                currentIndex = index;
-                _tabController.animateTo(index);
-              });
-            },
-            currentIndex: currentIndex,
-          ),
-          // bottomNavigationBar: BottomNavigationBar(),
+      child: Scaffold(
+        body: TabBarView(
+          controller: _tabController,
+          physics: const NeverScrollableScrollPhysics(),
+          children: const [
+            HomeBody(),
+            ArticlesView(),
+            SearchView(),
+            AboutView(),
+          ],
         ),
+        bottomNavigationBar: CustomBottonNavigationBar(
+          onTabChanged: (index) {
+            setState(() {
+              currentIndex = index;
+              _tabController.animateTo(index);
+            });
+          },
+          currentIndex: currentIndex,
+        ),
+        // bottomNavigationBar: BottomNavigationBar(),
       ),
     );
   }
