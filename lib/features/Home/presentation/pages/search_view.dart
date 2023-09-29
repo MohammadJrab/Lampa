@@ -94,7 +94,7 @@ class _SearchViewState extends State<SearchView>
             ),
 
             Positioned(
-              top: size.height * 0.045, right: size.width * 0.07,
+              top: size.height * 0.04,
               // right: size.width * .44,
               child: Column(
                 children: [
@@ -119,29 +119,47 @@ class _SearchViewState extends State<SearchView>
                     filterIcon: AssetsData.filterIcon,
                     width: size.width * .85,
                   ),
+                  const SizedBox(height: 28),
+                  Container(
+                    height: size.height * .65,
+                    width: size.width,
+                    decoration: const BoxDecoration(
+                      image: DecorationImage(
+                          image: AssetImage(
+                            AssetsData.loginDecoration,
+                          ),
+                          fit: BoxFit.cover),
+                      borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(30),
+                        topRight: Radius.circular(30),
+                      ),
+                    ),
+                    child: Center(
+                        child: SvgPicture.asset(AssetsData.searchPicture)),
+                  ),
                 ],
               ),
             ),
-            Positioned(
-              bottom: 0,
-              child: Container(
-                height: size.height * .61,
-                width: size.width,
-                decoration: const BoxDecoration(
-                  image: DecorationImage(
-                      image: AssetImage(
-                        AssetsData.loginDecoration,
-                      ),
-                      fit: BoxFit.cover),
-                  borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(30),
-                    topRight: Radius.circular(30),
-                  ),
-                ),
-                child:
-                    Center(child: SvgPicture.asset(AssetsData.searchPicture)),
-              ),
-            )
+            // Positioned(
+            //   bottom: 0,
+            //   child: Container(
+            //     height: size.height * .61,
+            //     width: size.width,
+            //     decoration: const BoxDecoration(
+            //       image: DecorationImage(
+            //           image: AssetImage(
+            //             AssetsData.loginDecoration,
+            //           ),
+            //           fit: BoxFit.cover),
+            //       borderRadius: BorderRadius.only(
+            //         topLeft: Radius.circular(30),
+            //         topRight: Radius.circular(30),
+            //       ),
+            //     ),
+            //     child:
+            //         Center(child: SvgPicture.asset(AssetsData.searchPicture)),
+            //   ),
+            // )
             // Positioned(
             //   top: size.height * 0.2,
             //   right: size.width * .1,

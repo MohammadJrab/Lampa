@@ -19,8 +19,8 @@ class HomeBackground extends StatelessWidget {
       child: Stack(
         children: [
           Positioned(
-            top: size.height * .232,
-            right: size.width * -0.020,
+            top: size.height * .245,
+            right: size.width * -0.025,
             child: Opacity(
               opacity: 0.21,
               child: SimpleShadow(

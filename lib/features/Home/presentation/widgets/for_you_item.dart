@@ -88,6 +88,7 @@ class ForYouItem extends StatelessWidget {
               left: 0,
               right: 0,
               child: Container(
+                width: size.width,
                 padding: const EdgeInsets.only(
                   left: 30,
                   right: 25,
@@ -105,8 +106,8 @@ class ForYouItem extends StatelessWidget {
                     const SizedBox(width: 40),
                     SizedBox(
                       // padding: const EdgeInsets.only(bottom: 15),
-                      height: 110,
-                      width: 232,
+                      height: 100,
+                      width: size.width * .55,
                       child: Text(
                         title,
                         textAlign: TextAlign.right,
