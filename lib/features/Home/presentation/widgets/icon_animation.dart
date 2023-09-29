@@ -60,16 +60,21 @@ class IconAnimation extends StatelessWidget {
                       ),
                     ),
                   ),
-                  if (!isExpanded)
-                    Positioned(
-                      top: 16,
-                      right: 0,
+                  // if (!isExpanded)
+                  Positioned(
+                    top: 16,
+                    right: 0,
+                    child: AnimatedOpacity(
+                      opacity: isExpanded ? 0.0 : 1.0,
+                      duration: const Duration(milliseconds: 200),
+                      curve: Curves.linearToEaseOut,
                       child: Container(
                         color: Colors.white,
                         width: 17,
                         height: 2.0,
                       ),
                     ),
+                  ),
                 ],
               ),
             );

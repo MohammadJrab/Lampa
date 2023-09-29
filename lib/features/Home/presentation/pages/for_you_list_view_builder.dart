@@ -37,6 +37,7 @@ class _ForYouListViewBuilderState extends State<ForYouListViewBuilder> {
       subtitle: subtilte,
       date: "لمبة  /  11 يونيو 2023",
       toggleIsSavedState: toggleIsSavedState,
+      imageWithOpacity: AssetsData.heartPicture,
     );
   }
 }

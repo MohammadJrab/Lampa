@@ -17,12 +17,14 @@ class ForYouItem extends StatelessWidget {
       required this.isSaved,
       required this.toggleIsSavedState,
       required this.date,
-      required this.image});
+      required this.image,
+      required this.imageWithOpacity});
   final String title;
   final String part;
   final String image;
   final String publisher;
   final String subtitle;
+  final String imageWithOpacity;
   final String date;
   final bool isSaved;
   final void Function() toggleIsSavedState;
@@ -209,6 +211,18 @@ class ForYouItem extends StatelessWidget {
                       ],
                     )
                   ],
+                ),
+              ),
+            ),
+            Positioned(
+              top: size.height * 0.565,
+              left: 30,
+              child: SizedBox(
+                child: SvgPicture.asset(
+                  imageWithOpacity,
+                  fit: BoxFit.contain,
+                  // width: 170,
+                  // height: 151,
                 ),
               ),
             ),

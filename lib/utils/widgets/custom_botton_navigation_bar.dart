@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:lamba/utils/app_router.dart';
 
 import '../assets.dart';
 
 class CustomBottonNavigationBar extends StatefulWidget {
-  const CustomBottonNavigationBar({super.key});
+  final Function(int) onTabChanged;
+  late int currentIndex;
+  CustomBottonNavigationBar(
+      {super.key, required this.onTabChanged, required this.currentIndex});
 
   @override
   State<CustomBottonNavigationBar> createState() =>
@@ -12,8 +16,6 @@ class CustomBottonNavigationBar extends StatefulWidget {
 }
 
 class _CustomBottonNavigationBarState extends State<CustomBottonNavigationBar> {
-  int currentIndex = 0;
-
   @override
   Widget build(BuildContext context) {
     double displayWidth = MediaQuery.of(context).size.width;
@@ -57,9 +59,10 @@ class _CustomBottonNavigationBarState extends State<CustomBottonNavigationBar> {
             itemBuilder: (context, index) => InkWell(
               onTap: () {
                 setState(() {
-                  currentIndex = index;
+                  widget.currentIndex = index;
                   HapticFeedback.lightImpact();
                 });
+                widget.onTabChanged(index);
               },
               splashColor: Colors.transparent,
               highlightColor: Colors.transparent,
@@ -68,17 +71,19 @@ class _CustomBottonNavigationBarState extends State<CustomBottonNavigationBar> {
                   AnimatedContainer(
                     duration: const Duration(seconds: 1),
                     curve: Curves.fastLinearToSlowEaseIn,
-                    width: index == currentIndex
+                    width: index == widget.currentIndex
                         ? displayWidth * .32
                         : displayWidth * .18,
                     alignment: Alignment.center,
                     child: AnimatedContainer(
                       duration: const Duration(seconds: 1),
                       curve: Curves.fastLinearToSlowEaseIn,
-                      height: index == currentIndex ? displayWidth * .12 : 0,
-                      width: index == currentIndex ? displayWidth * .32 : 0,
+                      height:
+                          index == widget.currentIndex ? displayWidth * .12 : 0,
+                      width:
+                          index == widget.currentIndex ? displayWidth * .32 : 0,
                       decoration: BoxDecoration(
-                        color: index == currentIndex
+                        color: index == widget.currentIndex
                             ? Colors.blueAccent.withOpacity(.2)
                             : Colors.transparent,
                         borderRadius: BorderRadius.circular(39),
@@ -88,7 +93,7 @@ class _CustomBottonNavigationBarState extends State<CustomBottonNavigationBar> {
                   AnimatedContainer(
                     duration: const Duration(seconds: 1),
                     curve: Curves.fastLinearToSlowEaseIn,
-                    width: index == currentIndex
+                    width: index == widget.currentIndex
                         ? displayWidth * .31
                         : displayWidth * .18,
                     alignment: Alignment.center,
@@ -99,16 +104,16 @@ class _CustomBottonNavigationBarState extends State<CustomBottonNavigationBar> {
                             AnimatedContainer(
                               duration: const Duration(seconds: 1),
                               curve: Curves.fastLinearToSlowEaseIn,
-                              width: index == currentIndex
+                              width: index == widget.currentIndex
                                   ? displayWidth * .13
                                   : 0,
                             ),
                             AnimatedOpacity(
-                              opacity: index == currentIndex ? 1 : 0,
+                              opacity: index == widget.currentIndex ? 1 : 0,
                               duration: const Duration(seconds: 1),
                               curve: Curves.fastLinearToSlowEaseIn,
                               child: Text(
-                                index == currentIndex
+                                index == widget.currentIndex
                                     ? listOfStrings[index]
                                     : '',
                                 style: const TextStyle(
@@ -126,12 +131,12 @@ class _CustomBottonNavigationBarState extends State<CustomBottonNavigationBar> {
                             AnimatedContainer(
                               duration: const Duration(seconds: 1),
                               curve: Curves.fastLinearToSlowEaseIn,
-                              width: index == currentIndex
+                              width: index == widget.currentIndex
                                   ? displayWidth * .04
                                   : 20,
                             ),
                             Image.asset(
-                              index == currentIndex
+                              index == widget.currentIndex
                                   ? listOfAciveIcons[index]
                                   : listOfIcons[index],
                               width: displayWidth * .076,
@@ -169,6 +174,13 @@ class _CustomBottonNavigationBarState extends State<CustomBottonNavigationBar> {
     'قائمة البحث',
     'من نحن؟',
   ];
+  List<String> screenNames = [
+    AppRouter.kHomeView,
+    'ArticlesScreen',
+    AppRouter.kPoliciesAndTermsView,
+    'AboutScreen',
+  ];
+}
   // List<void> listOfFuction = [
   //   (context) {
   //     GoRouter.of(context).push(AppRouter.kHomeView);
@@ -183,4 +195,3 @@ class _CustomBottonNavigationBarState extends State<CustomBottonNavigationBar> {
   //     GoRouter.of(context).push(AppRouter.kHomeView);
   //   },
   // ];
-}

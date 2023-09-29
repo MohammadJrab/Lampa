@@ -59,7 +59,7 @@ class AssetsData {
   static const saveAcive = 'assets/icons/saveAcive.svg';
 
 ////
-  // Filter Icon
+  // Drawer Icon
   static const drawer = 'assets/icons/drawer.svg';
   static const drawerClose = 'assets/icons/drawerClose.svg';
 
@@ -69,11 +69,21 @@ class AssetsData {
   static const accountIcon = 'assets/icons/account_icon.svg';
 
   // Notivigation Icon
-  static const notivigationIcon = 'assets/icons/notivigation.svg';
+  static const notificationsIcon = 'assets/icons/notificationsIcon.svg';
+
+////
+  // Filter Icon
+  static const filterIcon = 'assets/icons/filter_icon.svg';
+  // Search Icon
+  static const searchIcon = 'assets/icons/search.svg';
 
 ////
   ///
   // Images
   static const relationPicture = 'assets/images/relationPicture.png';
   static const travelPicture = 'assets/images/travelPicture.png';
+  static const heartPicture = 'assets/images/heart.svg';
+  static const airplanePicture = 'assets/images/airplane.svg';
+  static const lampPicture = 'assets/images/lamp.svg';
+  static const searchPicture = 'assets/images/searchPicture.svg';
 }

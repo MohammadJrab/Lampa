@@ -48,7 +48,7 @@ class _CustomRadioButtonState extends State<CustomRadioButton> {
               ),
               child: Padding(
                 padding:
-                    const EdgeInsets.symmetric(horizontal: 23, vertical: 10),
+                    const EdgeInsets.symmetric(horizontal: 23.0, vertical: 8.0),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   crossAxisAlignment: CrossAxisAlignment.center,
