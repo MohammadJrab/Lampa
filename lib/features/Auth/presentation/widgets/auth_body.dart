@@ -96,7 +96,7 @@ class _AuthBodyState extends State<AuthBody>
                       width: double.infinity,
                       child: TabBarView(
                         controller: _tabController,
-                        physics: const BouncingScrollPhysics(),
+                        // physics: const BouncingScrollPhysics(),
                         children: const [
                           SignInBody(),
                           LoginBody(),
