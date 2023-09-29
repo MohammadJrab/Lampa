@@ -50,9 +50,13 @@ class _OnboardingBodyState extends State<OnboardingBody> {
                     title: "الثقة والأمان",
                   ),
                   const SizedBox(height: 25),
-                  const Subheader(
-                      subheader:
-                          "التمتع بأعلى درجات الثقة والأمان وجميع البيانات سرية ."),
+                  SizedBox(
+                    height: 150,
+                    width: size.width * 0.9,
+                    child: const Subheader(
+                        subheader:
+                            "التمتع بأعلى درجات الثقة والأمان وجميع البيانات سرية ."),
+                  ),
                   const SizedBox(height: 57),
                   const OnBoardingImage(
                       positionedBottom: 18,
@@ -79,9 +83,13 @@ class _OnboardingBodyState extends State<OnboardingBody> {
                     title: "العلاج السهل",
                   ),
                   const SizedBox(height: 25),
-                  const Subheader(
-                      subheader:
-                          "علاج جميع الاضطرابات والمشكلات بدون أدوية نفسية باستثناء حالات نادرة تُحال إلى الطبيب"),
+                  SizedBox(
+                    height: 150,
+                    width: size.width * 0.9,
+                    child: const Subheader(
+                        subheader:
+                            "علاج جميع الاضطرابات والمشكلات بدون أدوية نفسية باستثناء حالات نادرة تُحال إلى الطبيب"),
+                  ),
                   const SizedBox(height: 57)
                 ],
               ),
@@ -96,10 +104,10 @@ class _OnboardingBodyState extends State<OnboardingBody> {
                     title: "معك حتى الشفاء",
                   ),
                   const SizedBox(height: 25),
-                  const SizedBox(
+                  SizedBox(
                     height: 150,
-                    width: 350,
-                    child: Subheader(
+                    width: size.width * 0.9,
+                    child: const Subheader(
                         subheader:
                             "رحلة علاجك النفسي سوف تكون متكاملة من خلال المتابعة المجانية لمدة شهر بعد الانتهاء من الوقت المحدد للعلاج\n والتشافي"),
                   ),
