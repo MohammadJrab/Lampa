@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
-import 'package:lamba/features/Auth/presentation/widgets/signup_body.dart';
 import 'package:lamba/utils/app_router.dart';
 import 'package:lamba/utils/assets.dart';
 import 'package:lamba/utils/styles.dart';
 import 'auth_background.dart';
 import 'custom_text_button_with_icon.dart';
-import 'login_Body.dart';
 
 class AuthBody extends StatefulWidget {
   const AuthBody({super.key});
@@ -88,19 +86,6 @@ class _AuthBodyState extends State<AuthBody>
                           ),
                         ),
                       ],
-                    ),
-                  ),
-                  Expanded(
-                    key: const Key("TabBarView"),
-                    child: SizedBox(
-                      width: double.infinity,
-                      child: TabBarView(
-                        controller: _tabController,
-                        children: const [
-                          SignInBody(),
-                          LoginBody(),
-                        ],
-                      ),
                     ),
                   ),
                 ],

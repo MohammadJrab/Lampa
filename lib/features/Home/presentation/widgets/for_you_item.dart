@@ -97,11 +97,8 @@ class ForYouItem extends StatelessWidget {
                   children: [
                     Padding(
                       padding: const EdgeInsets.only(top: 25),
-                      child: CustomContainer(
-                        title: part,
-                        height: 31,
-                        width: 81,
-                      ),
+                      child:
+                          CustomContainer(title: part, height: 31, width: 81),
                     ),
                     const SizedBox(width: 40),
                     SizedBox(

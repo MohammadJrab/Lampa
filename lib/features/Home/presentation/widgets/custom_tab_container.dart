@@ -2,21 +2,20 @@ import 'package:flutter/material.dart';
 import 'package:lamba/utils/assets.dart';
 import 'package:simple_shadow/simple_shadow.dart';
 
-import '../../../../utils/styles.dart';
-
-class CustomContainer extends StatelessWidget {
-  const CustomContainer(
-      {super.key,
-      required this.title,
-      this.textStyle,
-      this.sharpColor,
-      required this.height,
-      required this.width});
+class CustomTabContainer extends StatelessWidget {
+  const CustomTabContainer({
+    super.key,
+    required this.title,
+    this.textStyle,
+    required this.height,
+    required this.width,
+    required this.font,
+  });
   final String title;
   final TextStyle? textStyle;
-  final Color? sharpColor;
   final double height;
   final double width;
+  final TextStyle font;
 
   @override
   Widget build(BuildContext context) {
@@ -27,6 +26,7 @@ class CustomContainer extends StatelessWidget {
       sigma: 2,
       child: Container(
         height: height,
+        // padding: isSelected ? const EdgeInsets.only(left: 30, right: 8) : null,
         width: width,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(50),
@@ -41,18 +41,7 @@ class CustomContainer extends StatelessWidget {
           children: [
             Text(
               title,
-              style: textStyle ??
-                  Styles.textStyle11.copyWith(
-                    color: const Color(0xff222222),
-                  ),
-            ),
-            const SizedBox(width: 6),
-            Text(
-              "#",
-              style: textStyle ??
-                  Styles.textStyle11.copyWith(
-                    color: sharpColor ?? const Color(0xff5B5B5B),
-                  ),
+              style: font,
             ),
           ],
         ),

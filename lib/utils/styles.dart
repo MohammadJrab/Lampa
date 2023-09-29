@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 abstract class Styles {
+  static TextStyle textStyle9 = GoogleFonts.cairo(
+      fontSize: 9, fontWeight: FontWeight.w600, color: const Color(0xff222222));
   static TextStyle textStyle10 = GoogleFonts.cairo(
     fontSize: 10,
     fontWeight: FontWeight.w400,
