@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:go_router/go_router.dart';
+import 'package:lamba/utils/app_router.dart';
 import 'package:simple_shadow/simple_shadow.dart';
 
 import '../../../../utils/assets.dart';
@@ -68,7 +70,9 @@ class CongratsBody extends StatelessWidget {
                       CustomTextButton(
                         color: const Color(0xff3E6897),
                         title: "استمرار",
-                        onTap: () {},
+                        onTap: () {
+                          GoRouter.of(context).push(AppRouter.kHomeView);
+                        },
                       ),
                       SizedBox(height: size.height * 0.09),
                     ],

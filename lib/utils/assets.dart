@@ -86,4 +86,19 @@ class AssetsData {
   static const airplanePicture = 'assets/images/airplane.svg';
   static const lampPicture = 'assets/images/lamp.svg';
   static const searchPicture = 'assets/images/searchPicture.svg';
+  //
+  //Who We Are View Images
+  static const goalGirl = 'assets/images/GoalGirl.svg';
+  static const goal = 'assets/images/Goal.svg';
+  static const starBoy = 'assets/images/starBoy.svg';
+  static const star = 'assets/images/star.svg';
+  static const startBoy = 'assets/images/startBoy.svg';
+  static const medicamentBoy = 'assets/images/medicamentBoy.svg';
+  static const medicament = 'assets/images/medicament.svg';
+  static const whatsApp = 'assets/images/WhatsApp.svg';
+  static const idIcon = 'assets/images/id_icon.svg';
+  static const profile = 'assets/images/profile.png';
+  static const searchSvg = 'assets/images/search_svg.svg';
+  //
+  //
 }

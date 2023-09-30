@@ -23,7 +23,12 @@ class _AuthBodyState extends State<AuthBody>
   @override
   void initState() {
     super.initState();
-    _tabController = TabController(initialIndex: 1, length: 2, vsync: this);
+    _tabController = TabController(
+      initialIndex: 1,
+      length: 2,
+      vsync: this,
+      animationDuration: const Duration(milliseconds: 2000),
+    );
   }
 
   @override

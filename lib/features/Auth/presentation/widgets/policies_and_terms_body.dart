@@ -154,7 +154,7 @@ class _PoliciesAndTermsBodyState extends State<PoliciesAndTermsBody> {
                                 title: "أوافق على الشروط",
                                 onTap: () {
                                   GoRouter.of(context)
-                                      .push(AppRouter.kPoliciesAndTermsView);
+                                      .push(AppRouter.kHomeView);
                                 },
                               ),
                             ),
