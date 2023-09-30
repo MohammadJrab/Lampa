@@ -20,7 +20,8 @@ class AboutView extends StatefulWidget {
   State<AboutView> createState() => _AboutViewState();
 }
 
-class _AboutViewState extends State<AboutView> with TickerProviderStateMixin {
+class _AboutViewState extends State<AboutView>
+    with SingleTickerProviderStateMixin {
   late AnimationController _animationController;
   late Animation<double> _animation;
   bool isExpanded = false;
@@ -177,53 +178,67 @@ class _AboutViewState extends State<AboutView> with TickerProviderStateMixin {
                     const OurSiteContainer(),
                     const SizedBox(height: 18),
                     SizedBox(
-                        height: 314,
-                        width: double.infinity,
-                        child: SingleChildScrollView(
-                          child: SizedBox(
-                            child: Row(
+                      height: size.height * .42,
+                      width: size.width,
+                      child: SingleChildScrollView(
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.start,
                               children: [
-                                Column(
-                                  children: [
-                                    AnimatedContainerWithReadMore(
-                                      title: aboutUSModel[0].title,
-                                      subtitle: aboutUSModel[0].subtitle,
-                                      backgroundImage:
-                                          aboutUSModel[0].backgroundImage,
-                                      image: aboutUSModel[0].image,
-                                    ),
-                                    AnimatedContainerWithReadMore(
-                                      title: aboutUSModel[0].title,
-                                      subtitle: aboutUSModel[0].subtitle,
-                                      backgroundImage:
-                                          aboutUSModel[0].backgroundImage,
-                                      image: aboutUSModel[0].image,
-                                    ),
-                                  ],
+                                AnimatedContainerWithReadMore(
+                                  title: aboutUSModel[0].title,
+                                  subtitle: aboutUSModel[0].subtitle,
+                                  backgroundImage:
+                                      aboutUSModel[0].backgroundImage,
+                                  image: aboutUSModel[0].image,
                                 ),
-                                Column(
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  children: [
-                                    AnimatedContainerWithReadMore(
-                                      title: aboutUSModel[0].title,
-                                      subtitle: aboutUSModel[0].subtitle,
-                                      backgroundImage:
-                                          aboutUSModel[0].backgroundImage,
-                                      image: aboutUSModel[0].image,
-                                    ),
-                                    AnimatedContainerWithReadMore(
-                                      title: aboutUSModel[0].title,
-                                      subtitle: aboutUSModel[0].subtitle,
-                                      backgroundImage:
-                                          aboutUSModel[0].backgroundImage,
-                                      image: aboutUSModel[0].image,
-                                    ),
-                                  ],
+                                const SizedBox(
+                                  height: 16,
+                                ),
+                                AnimatedContainerWithReadMore(
+                                  title: aboutUSModel[3].title,
+                                  subtitle: aboutUSModel[3].subtitle,
+                                  backgroundImage:
+                                      aboutUSModel[3].backgroundImage,
+                                  image: aboutUSModel[3].image,
+                                ),
+                                const SizedBox(
+                                  height: 40,
                                 ),
                               ],
                             ),
-                          ),
-                        )),
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                AnimatedContainerWithReadMore(
+                                  title: aboutUSModel[1].title,
+                                  subtitle: aboutUSModel[1].subtitle,
+                                  backgroundImage:
+                                      aboutUSModel[1].backgroundImage,
+                                  image: aboutUSModel[1].image,
+                                ),
+                                const SizedBox(
+                                  height: 16,
+                                ),
+                                AnimatedContainerWithReadMore(
+                                  title: aboutUSModel[2].title,
+                                  subtitle: aboutUSModel[2].subtitle,
+                                  backgroundImage:
+                                      aboutUSModel[2].backgroundImage,
+                                  image: aboutUSModel[2].image,
+                                ),
+                                const SizedBox(
+                                  height: 40,
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
                   ],
                 ),
               ),
@@ -244,49 +259,50 @@ class OurSiteContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: MediaQuery.of(context).size.width * 0.9,
-      height: 82,
-      padding: const EdgeInsets.only(left: 15, right: 17, top: 10, bottom: 0),
+      height: 88,
+      padding: const EdgeInsets.only(left: 10, right: 5, top: 10, bottom: 0),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(15),
       ),
       child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Stack(
-            alignment: Alignment.center,
+          Column(
+            // alignment: Alignment.center,
             children: [
-              Positioned(
-                left: 15,
-                bottom: 0,
-                child: ContanctWithUSButton(
-                  onTap: () {},
-                ),
-              ),
-              Container(
-                padding: const EdgeInsets.only(top: 4),
-                width: MediaQuery.of(context).size.width * .65,
+              SizedBox(
+                // padding: const EdgeInsets.only(top: 4),
+                width: 227,
                 child: Text(
                   ourSiteString,
                   textAlign: TextAlign.right,
+                  maxLines: 3,
                   textDirection: TextDirection.rtl,
                   style: Styles.textStyle9.copyWith(
                     color: const Color(0xff444444),
                     fontWeight: FontWeight.w600,
                   ),
                 ),
-              )
+              ),
+              Container(
+                // height: 15,
+                // width: 50,
+                alignment: Alignment.bottomLeft,
+                margin: const EdgeInsets.only(right: 175.0),
+                child: ContanctWithUSButton(
+                  onTap: () {},
+                ),
+              ),
             ],
           ),
           const SizedBox(width: 10),
-          Align(
-            alignment: Alignment.centerRight,
-            child: SizedBox(
-              width: 41,
-              height: 41,
-              child: SvgPicture.asset(AssetsData.whatsApp),
-            ),
+          Container(
+            width: 41,
+            margin: const EdgeInsets.only(bottom: 15),
+            height: 41,
+            child: SvgPicture.asset(AssetsData.whatsApp),
           ),
         ],
       ),

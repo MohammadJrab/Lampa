@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:lamba/features/Home/presentation/pages/daily_view.dart';
+import 'package:lamba/features/Home/presentation/pages/expain_more_view.dart';
+import 'package:lamba/utils/assets.dart';
 
 import '../../../../utils/styles.dart';
 import '../pages/for_you_list_view_builder.dart';
@@ -112,8 +115,8 @@ class _HomeBodyState extends State<HomeBody> with TickerProviderStateMixin {
                   child: TabBarView(
                     controller: _tabController,
                     children: const [
-                      Text("Explore More"),
-                      Text("Today"),
+                      ExplainMoreView(),
+                      DailyView(),
                       ForYouListViewBuilder(),
                     ],
                   ),

@@ -100,5 +100,8 @@ class AssetsData {
   static const profile = 'assets/images/profile.png';
   static const searchSvg = 'assets/images/search_svg.svg';
   //
-  //
+  //Paper images
+  static const paperTool = 'assets/images/paperTool.svg';
+  static const paperLight = 'assets/images/paperLight.svg';
+  static const paper = 'assets/images/paper.svg';
 }

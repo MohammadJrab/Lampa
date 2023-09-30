@@ -95,7 +95,7 @@ class ContanctWithUSButton extends StatelessWidget {
             const Positioned(
               bottom: 0,
               child: SizedBox(
-                width: 43,
+                width: 40,
                 height: 2,
                 child: Divider(
                   thickness: 1,

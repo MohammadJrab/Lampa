@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:lamba/utils/app_router.dart';
-
 import '../assets.dart';
 
 class CustomBottonNavigationBar extends StatefulWidget {
@@ -173,12 +171,6 @@ class _CustomBottonNavigationBarState extends State<CustomBottonNavigationBar> {
     'المقالات',
     'قائمة البحث',
     'من نحن؟',
-  ];
-  List<String> screenNames = [
-    AppRouter.kHomeView,
-    'ArticlesScreen',
-    AppRouter.kPoliciesAndTermsView,
-    'AboutScreen',
   ];
 }
   // List<void> listOfFuction = [
