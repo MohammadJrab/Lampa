@@ -7,7 +7,8 @@ import 'package:lamba/utils/styles.dart';
 import 'package:simple_shadow/simple_shadow.dart';
 
 class CustomDrawer extends StatefulWidget {
-  const CustomDrawer({super.key});
+  final GlobalKey<ScaffoldState> scaffoldKey;
+  const CustomDrawer({Key? key, required this.scaffoldKey}) : super(key: key);
 
   @override
   _CustomDrawerState createState() => _CustomDrawerState();
@@ -24,8 +25,8 @@ class _CustomDrawerState extends State<CustomDrawer>
   void _toggleExpandedState() {
     setState(() {
       if (isExpanded) {
-        _animationController.reverse();
-        Scaffold.of(context).closeEndDrawer();
+        _reverseDrawer();
+        // Scaffold.of(context).openEndDrawer();
       } else {
         _animationController.forward();
       }
@@ -62,45 +63,60 @@ class _CustomDrawerState extends State<CustomDrawer>
       _isDrawerOpen = !_isDrawerOpen;
       if (_isDrawerOpen) {
         _animationController.forward();
-      } else {
-        _animationController.reverse();
       }
+      // else {
+      //   _reverseDrawer();
+      // }
+    });
+  }
+
+  void _reverseDrawer() {
+    setState(() {
+      _isDrawerOpen = false;
+      _animationController.reverse();
+      // _closeDrawer();
+    });
+    Future.delayed(const Duration(milliseconds: 1800), () {
+      widget.scaffoldKey.currentState!.closeEndDrawer();
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.sizeOf(context);
+    Size size = MediaQuery.of(context).size;
     return Stack(
       children: [
         Container(
+          height: size.height,
+          width: size.width,
           color: Colors.transparent,
         ),
         AnimatedBuilder(
           animation: _animationController,
           builder: (context, child) {
-            final slideAmount = MediaQuery.of(context).size.width *
-                (_animationController.value - 1);
+            final slideAmount = size.width * (_animationController.value - 1);
             return Transform.translate(
               offset: Offset(slideAmount, 0),
               child: child,
             );
           },
           child: Container(
-            width: MediaQuery.of(context).size.width,
-            height: MediaQuery.of(context).size.height,
+            width: size.width,
+            height: size.height,
             decoration: BoxDecoration(
-                boxShadow: [
-                  BoxShadow(
-                    blurRadius: 21,
-                    offset: const Offset(0, -9),
-                    color: const Color(0xff000000).withOpacity(0.01),
-                  ),
-                ],
-                image: const DecorationImage(
-                    image: AssetImage(AssetsData.drawerBackgound),
-                    fit: BoxFit.cover,
-                    opacity: 0.9)),
+              boxShadow: [
+                BoxShadow(
+                  blurRadius: 21,
+                  offset: const Offset(0, -9),
+                  color: const Color(0xff000000).withOpacity(0.01),
+                ),
+              ],
+              image: const DecorationImage(
+                image: AssetImage(AssetsData.drawerBackgound),
+                fit: BoxFit.cover,
+                opacity: 0.9,
+              ),
+            ),
           ),
         ),
         Align(
@@ -108,8 +124,8 @@ class _CustomDrawerState extends State<CustomDrawer>
           child: AnimatedBuilder(
             animation: _animationController,
             builder: (context, child) {
-              final slideAmount = MediaQuery.of(context).size.width *
-                  -(_animationController.value - 1);
+              final slideAmount =
+                  size.width * -(_animationController.value - 1);
               return Transform.translate(
                 offset: Offset(slideAmount, 0),
                 child: child,
@@ -121,106 +137,115 @@ class _CustomDrawerState extends State<CustomDrawer>
               decoration: const BoxDecoration(
                 color: Color(0xff3E6897),
                 borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(15),
-                    bottomLeft: Radius.circular(15)),
+                  topLeft: Radius.circular(15),
+                  bottomLeft: Radius.circular(15),
+                ),
               ),
               child: DrawerBackground(
-                  child: Positioned(
-                top: 20,
-                right: 0,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.end,
-                  children: [
-                    IconAnimation(
-                      angle: _animation,
-                      animation: _animationController,
-                      isExpanded: isExpanded,
-                      onTap: () => _toggleExpandedState(),
-                    ),
-                    SizedBox(height: size.height * 0.06),
-                    const Padding(
-                      padding: EdgeInsets.only(right: 25),
-                      child: ProfileInformationDrawer(
-                          name: "مصطفى حصرية", image: AssetsData.travelPicture),
-                    ),
-                    SizedBox(
-                      height: size.height * 0.058,
-                    ),
-                    SizedBox(
-                      height: size.height * 0.8,
-                      width: size.width * 0.7,
-                      child: Align(
-                        alignment: Alignment.center,
-                        child: ListView(
-                          children: [
-                            CustomListTile(
-                              isSelected: true,
-                              title: "الشاشة الرئيسية",
-                              icon: AssetsData.homeDrawerIcon,
-                              onTap: () {},
-                            ),
-                            const SizedBox(height: 10),
-                            CustomListTile(
-                              isSelected: false,
-                              title: "البروفايل",
-                              icon: AssetsData.profileDrawerIcon,
-                              onTap: () {},
-                            ),
-                            const SizedBox(height: 10),
-                            CustomListTile(
-                              isSelected: false,
-                              title: "المقالات المحفوظة",
-                              icon: AssetsData.savedArticlesDrawerIcon,
-                              onTap: () {},
-                            ),
-                            const SizedBox(height: 10),
-                            CustomListTile(
-                              isSelected: false,
-                              title: "المفضلة",
-                              icon: AssetsData.favouriteIcon,
-                              onTap: () {},
-                            ),
-                            const SizedBox(height: 10),
-                            CustomListTile(
-                              isSelected: false,
-                              title: "الاعدادات",
-                              icon: AssetsData.settingsIcon,
-                              onTap: () {},
-                            ),
-                            const SizedBox(height: 35),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceAround,
-                              children: [
-                                const SizedBox(
-                                  width: 25,
-                                ),
-                                Container(
-                                  width: 118,
-                                  padding: const EdgeInsets.only(right: 25),
-                                  decoration: BoxDecoration(
-                                    border: Border.all(
-                                      color: Colors.white,
-                                      width: 1,
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                            const SizedBox(height: 35),
-                            CustomListTile(
-                              isSelected: false,
-                              title: "تسجيل خروج",
-                              icon: AssetsData.signoutIcon,
-                              onTap: () {},
-                            ),
-                          ],
+                child: Positioned(
+                  top: 20,
+                  right: 0,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+                      Builder(
+                        builder: (context) {
+                          return IconAnimation(
+                            angle: _animation,
+                            animation: _animationController,
+                            isExpanded: isExpanded,
+                            onTap: () => _toggleExpandedState(),
+                          );
+                        },
+                      ),
+                      SizedBox(height: size.height * 0.06),
+                      const Padding(
+                        padding: EdgeInsets.only(right: 25),
+                        child: ProfileInformationDrawer(
+                          name: "محمد جراب",
+                          image: AssetsData.mohammad,
                         ),
                       ),
-                    )
-                  ],
+                      SizedBox(
+                        height: size.height * 0.058,
+                      ),
+                      SizedBox(
+                        height: size.height * 0.8,
+                        width: size.width * 0.7,
+                        child: Align(
+                          alignment: Alignment.center,
+                          child: ListView(
+                            children: [
+                              CustomListTile(
+                                isSelected: true,
+                                title: "الشاشة الرئيسية",
+                                icon: AssetsData.homeDrawerIcon,
+                                onTap: () {},
+                              ),
+                              const SizedBox(height: 10),
+                              CustomListTile(
+                                isSelected: false,
+                                title: "البروفايل",
+                                icon: AssetsData.profileDrawerIcon,
+                                onTap: () {},
+                              ),
+                              const SizedBox(height: 10),
+                              CustomListTile(
+                                isSelected: false,
+                                title: "المقالات المحفوظة",
+                                icon: AssetsData.savedArticlesDrawerIcon,
+                                onTap: () {},
+                              ),
+                              const SizedBox(height: 10),
+                              CustomListTile(
+                                isSelected: false,
+                                title: "المفضلة",
+                                icon: AssetsData.favouriteIcon,
+                                onTap: () {},
+                              ),
+                              const SizedBox(height: 10),
+                              CustomListTile(
+                                isSelected: false,
+                                title: "الاعدادات",
+                                icon: AssetsData.settingsIcon,
+                                onTap: () {},
+                              ),
+                              const SizedBox(height: 35),
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceAround,
+                                children: [
+                                  const SizedBox(
+                                    width: 25,
+                                  ),
+                                  Container(
+                                    width: 118,
+                                    padding: const EdgeInsets.only(right: 25),
+                                    decoration: BoxDecoration(
+                                      border: Border.all(
+                                        color: Colors.white,
+                                        width: 1,
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              const SizedBox(height: 35),
+                              CustomListTile(
+                                isSelected: false,
+                                title: "تسجيل خروج",
+                                icon: AssetsData.signoutIcon,
+                                onTap: () {},
+                              ),
+                            ],
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
                 ),
-              )),
+              ),
             ),
           ),
         ),

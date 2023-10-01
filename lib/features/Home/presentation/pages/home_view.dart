@@ -16,6 +16,7 @@ class HomeView extends StatefulWidget {
 class _HomeViewState extends State<HomeView>
     with SingleTickerProviderStateMixin {
   late TabController _tabController;
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
@@ -34,7 +35,10 @@ class _HomeViewState extends State<HomeView>
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        endDrawer: const CustomDrawer(), endDrawerEnableOpenDragGesture: false,
+        key: _scaffoldKey,
+        endDrawer: CustomDrawer(scaffoldKey: _scaffoldKey),
+        endDrawerEnableOpenDragGesture: false,
+        drawerEnableOpenDragGesture: false,
         body: TabBarView(
           controller: _tabController,
           physics: const NeverScrollableScrollPhysics(),

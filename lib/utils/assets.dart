@@ -122,4 +122,5 @@ class AssetsData {
   ////
   ///Random images
   static const alienation = 'assets/images/alienation.png';
+  static const mohammad = 'assets/images/mohammad.png';
 }
