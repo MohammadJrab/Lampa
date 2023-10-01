@@ -42,7 +42,7 @@ abstract class AppRouter {
                 (context, animation, secondaryAnimation, child) {
               return FadeTransition(
                 opacity:
-                    CurveTween(curve: Curves.easeInOutCirc).animate(animation),
+                    CurveTween(curve: Curves.easeOutCirc).animate(animation),
                 child: child,
               );
             },

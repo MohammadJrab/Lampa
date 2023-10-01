@@ -44,14 +44,15 @@ class _HomeBodyState extends State<HomeBody> with TickerProviderStateMixin {
   }
 
   void _toggleExpandedState() {
-    setState(() {
-      if (isExpanded) {
-        _animationController.reverse();
-      } else {
-        _animationController.forward();
-      }
-      isExpanded = !isExpanded;
-    });
+    Scaffold.of(context).openEndDrawer();
+    // setState(() {
+    //   if (isExpanded) {
+    //     _animationController.reverse();
+    //   } else {
+    //     _animationController.forward();
+    //   }
+    //   isExpanded = !isExpanded;
+    // });
   }
 
   @override

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_svg/svg.dart';
 import '../assets.dart';
 
 class CustomBottonNavigationBar extends StatefulWidget {
@@ -114,6 +115,8 @@ class _CustomBottonNavigationBarState extends State<CustomBottonNavigationBar> {
                                 index == widget.currentIndex
                                     ? listOfStrings[index]
                                     : '',
+                                textAlign: TextAlign.right,
+                                textDirection: TextDirection.rtl,
                                 style: const TextStyle(
                                   color: Color(0xff3E6897),
                                   fontWeight: FontWeight.w700,
@@ -133,11 +136,11 @@ class _CustomBottonNavigationBarState extends State<CustomBottonNavigationBar> {
                                   ? displayWidth * .04
                                   : 20,
                             ),
-                            Image.asset(
+                            SvgPicture.asset(
                               index == widget.currentIndex
                                   ? listOfAciveIcons[index]
                                   : listOfIcons[index],
-                              width: displayWidth * .076,
+                              width: displayWidth * .05,
                             )
                           ],
                         ),
@@ -154,16 +157,16 @@ class _CustomBottonNavigationBarState extends State<CustomBottonNavigationBar> {
   }
 
   List<String> listOfIcons = [
-    AssetsData.homeIcon,
-    AssetsData.articles,
-    AssetsData.search,
-    AssetsData.whoWeAre,
+    AssetsData.homeNav,
+    AssetsData.aritcleNav,
+    AssetsData.searchNav,
+    AssetsData.whoWeAreNav,
   ];
   List<String> listOfAciveIcons = [
-    AssetsData.homeActiveIcon,
-    AssetsData.articlesActive,
-    AssetsData.searchActive,
-    AssetsData.whoWeAreActive,
+    AssetsData.homeNavAct,
+    AssetsData.aritcleNavAct,
+    AssetsData.searchNavAct,
+    AssetsData.whoWeAreNavAct,
   ];
 
   List<String> listOfStrings = [

@@ -42,17 +42,17 @@ class AssetsData {
   // static const cloudTopSmall = 'assets/images/cloudTopSmall.svg';
 
   //Navigation bar Icons
-  static const homeIcon = 'assets/icons/home.png';
-  static const homeActiveIcon = 'assets/icons/homeActive.png';
+  static const homeNav = 'assets/icons/homeNav.svg';
+  static const homeNavAct = 'assets/icons/homeNavAct.svg';
 
-  static const articles = 'assets/icons/articles.png';
-  static const articlesActive = 'assets/icons/articlesActive.png';
+  static const aritcleNav = 'assets/icons/aritcleNav.svg';
+  static const aritcleNavAct = 'assets/icons/aritcleNavAct.svg';
 
-  static const whoWeAre = 'assets/icons/whoWeAre.png';
-  static const whoWeAreActive = 'assets/icons/whoWeAreActive.png';
+  static const whoWeAreNav = 'assets/icons/whoWeAreNav.svg';
+  static const whoWeAreNavAct = 'assets/icons/whoWeAreNavAct.svg';
 
-  static const search = 'assets/icons/search.png';
-  static const searchActive = 'assets/icons/searchActive.png';
+  static const searchNav = 'assets/icons/searchNav.svg';
+  static const searchNavAct = 'assets/icons/searchNavAct.svg';
 ////
   // Save  Icon
   static const save = 'assets/icons/save.svg';
@@ -104,4 +104,22 @@ class AssetsData {
   static const paperTool = 'assets/images/paperTool.svg';
   static const paperLight = 'assets/images/paperLight.svg';
   static const paper = 'assets/images/paper.svg';
+
+  //Drawer Backgound
+  static const drawerBackgound = 'assets/images/drawerBackgound.png';
+  //Drawer Icons
+  static const homeDrawerIcon = 'assets/icons/homeDrawerIcon.svg';
+  static const profileDrawerIcon = 'assets/icons/profileDrawerIcon.svg';
+  static const savedArticlesDrawerIcon =
+      'assets/icons/savedArticlesDrawerIcon.svg';
+  static const favouriteIcon = 'assets/icons/favouriteIcon.svg';
+  static const settingsIcon = 'assets/icons/settingsIcon.svg';
+  static const signoutIcon = 'assets/icons/signoutIcon.svg';
+
+  //Articles Icons
+  static const like = 'assets/icons/like.svg';
+  static const comment = 'assets/icons/comment.svg';
+  ////
+  ///Random images
+  static const alienation = 'assets/images/alienation.png';
 }

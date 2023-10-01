@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:lamba/features/Home/presentation/pages/about_view.dart';
 import 'package:lamba/features/Home/presentation/pages/search_view.dart';
+import 'package:lamba/features/Home/presentation/widgets/custom_drawer.dart';
 import '../../../../utils/widgets/custom_botton_navigation_bar.dart';
 import '../widgets/home_body.dart';
 import 'articles_view.dart';
@@ -33,6 +34,7 @@ class _HomeViewState extends State<HomeView>
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        endDrawer: const CustomDrawer(), endDrawerEnableOpenDragGesture: false,
         body: TabBarView(
           controller: _tabController,
           physics: const NeverScrollableScrollPhysics(),

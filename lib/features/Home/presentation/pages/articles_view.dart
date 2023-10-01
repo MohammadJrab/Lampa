@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:lamba/features/Home/data/models/aritcle_model.dart';
+import 'package:lamba/features/Home/presentation/widgets/article_container_with_picture.dart';
 import 'package:lamba/utils/styles.dart';
 import 'package:simple_shadow/simple_shadow.dart';
 
@@ -61,15 +63,29 @@ class _ArticlesViewState extends State<ArticlesView>
   }
 
   void _toggleExpandedState() {
-    setState(() {
-      if (isExpanded) {
-        _animationController.reverse();
-      } else {
-        _animationController.forward();
-      }
-      isExpanded = !isExpanded;
-    });
+    Scaffold.of(context).openEndDrawer();
+    // setState(() {
+    //   if (isExpanded) {
+    //     _animationController.reverse();
+    //   } else {
+    //     _animationController.forward();
+    //     Scaffold.of(context).openEndDrawer();
+    //   }
+    //   isExpanded = !isExpanded;
+    // });
   }
+
+  List<AricleModel> articles = const [
+    AricleModel(
+        title: "الغربة والحاجة إلى الإندماج في المجتمعات الغربية",
+        backgroundImage: AssetsData.airplanePicture,
+        image: AssetsData.alienation,
+        subtitle:
+            '''اتصلّت بي امرأة ، تركت بلدها العربي لظروف قاهرة ، لتعيش في ألمانيا منذ خمس سنوات .قالت لي : توقف الزمن عندي منذ هاجرت لأوروبا .. لم أستطع الاندماج ، وجدتُ صعوبة في تعلم اللغة ، لم أتقبّل الناس وطبائعهم ، وللأسف لا......n
+أستطيع العودة إلى بلدي .
+ماهي الغربة؟..أسبابها؟ فكرة السفر إلى الخارج....
+فكرة السفر إلى الخارج كانت موجودة منذ زمن بعيد،كانت …إما بسبب البحث عن العمل ، أو الدراسة.لكن مؤخراً مع ظهور الحروب والفوضى التي كانت منتشرة في الوطن العربي بشكل عام ، وفي سوريا بشكل خاص؛ أصبح السفر ضرورة حتمية للبحث عن الأمان والاستقرار، خاصة وأن هناك الكثير من الأشخاص الذين خسروا منازلهم وعملهم بسبب الحرب، واضطروا لأن.....'''),
+  ];
 
   int selectedFilterIndex = 0;
   @override
@@ -242,6 +258,19 @@ class _ArticlesViewState extends State<ArticlesView>
                           },
                         ),
                       ),
+                      const SizedBox(height: 11),
+                      SingleChildScrollView(
+                        child: Column(
+                          children: [
+                            ArticleContainerWithPicture(
+                              title: articles[0].title,
+                              subtitle: articles[0].subtitle,
+                              image: articles[0].image,
+                              backgroundImage: articles[0].backgroundImage,
+                            ),
+                          ],
+                        ),
+                      )
                     ],
                   ),
                 ),

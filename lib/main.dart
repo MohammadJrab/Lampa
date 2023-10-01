@@ -17,6 +17,8 @@ class Lamba extends StatelessWidget {
           scaffoldBackgroundColor: kPrimitiveColor,
           textTheme: GoogleFonts.cairoTextTheme(ThemeData.dark().textTheme)),
       routerConfig: AppRouter.router,
+      // routerDelegate: AppRouter.router.routerDelegate,
+      // routeInformationParser: AppRouter.router.routeInformationParser,
     );
   }
 }

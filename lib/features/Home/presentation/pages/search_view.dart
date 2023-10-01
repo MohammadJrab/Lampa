@@ -47,14 +47,16 @@ class _SearchViewState extends State<SearchView>
   }
 
   void _toggleExpandedState() {
-    setState(() {
-      if (isExpanded) {
-        _animationController.reverse();
-      } else {
-        _animationController.forward();
-      }
-      isExpanded = !isExpanded;
-    });
+    Scaffold.of(context).openEndDrawer();
+    // setState(() {
+    //   if (isExpanded) {
+    //     _animationController.reverse();
+    //   } else {
+    //     _animationController.forward();
+    //     Scaffold.of(context).openEndDrawer();
+    //   }
+    //   isExpanded = !isExpanded;
+    // });
   }
 
   @override

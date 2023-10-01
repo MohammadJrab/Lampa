@@ -86,14 +86,19 @@ class _AboutViewState extends State<AboutView>
   }
 
   void _toggleExpandedState() {
-    setState(() {
-      if (isExpanded) {
-        _animationController.reverse();
-      } else {
-        _animationController.forward();
-      }
-      isExpanded = !isExpanded;
-    });
+    Scaffold.of(context).openEndDrawer();
+
+    // setState(() {
+    //   if (isExpanded) {
+    //     _animationController.reverse();
+    //     isExpanded = false;
+    //   } else {
+    //     _animationController.forward();
+    //     Scaffold.of(context).openEndDrawer();
+    //     isExpanded = true;
+    //     _animationController.forward();
+    //   }
+    // });
   }
 
   int selectedFilterIndex = 0;
